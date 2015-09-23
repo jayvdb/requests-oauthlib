@@ -259,9 +259,9 @@ class OAuth1SessionTest(unittest.TestCase):
     @mock.patch('oauthlib.oauth1.rfc5849.generate_nonce')
     def test_authorized_true_rsa(self, generate_nonce, generate_timestamp):
         try:
-            import Crypto
+            import cryptography
         except ImportError:
-            raise unittest.SkipTest('pycrypto not available')
+            raise unittest.SkipTest('cryptography not available')
 
         generate_nonce.return_value = 'abc'
         generate_timestamp.return_value = '123'
